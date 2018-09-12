@@ -18,7 +18,7 @@ private:
 };
 
 struct Bat : public Animal{
-
+    Bat();
 };
 
 int main(){
