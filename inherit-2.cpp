@@ -12,13 +12,17 @@ using std::endl;
 using std::string;
 
 struct Animal{
-    Animal(string name) : name(name){}
+    Animal(string name) : name(name){
+        cout << "Animal constructor" << endl;
+    }
 private:
     string name;
 };
 
 struct Bat : public Animal{
-    Bat() : Animal("Bat"){}
+    Bat() : Animal("Bat"){
+        cout << "Bat constructor" << endl;
+    }
 };
 
 int main(){
