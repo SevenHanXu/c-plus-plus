@@ -26,10 +26,31 @@ struct Bat : public Animal{
     int x;
 };
 
+template <typename T> 
+class Array{
+public:
+    Array(int n) : n(n){
+        this->data  = (T *)malloc(sizeof(T) * n);
+    }
+    T &operator[](int ind){
+        if(ind < 0 || ind >= this->n) return this->temp;
+        return this->data[ind];
+    }
+    void output(){
+        for(int i = 0; i < this->n; i++){
+            cout << this->data[i] << endl;
+        }
+    }
+private:
+    int n;
+    T *data, temp;
+};
+
 int main(){
-    Bat b;
-    cout << sizeof(Bat) << endl;
-    //因为开辟一个子类的对象，不仅要开辟当前子类的空间，还需要开辟父类的空间；等于子类与父类相加之和；
-    cout << sizeof(Animal) << endl;
+    Array <int> arr(10);
+    for(int i = 0; i < 10; i++){
+        arr[i] = i + 1;
+    }
+    arr.output();
     return 0;
 }
