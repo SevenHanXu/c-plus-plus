@@ -23,9 +23,13 @@ struct Bat : public Animal{
     Bat() : Animal("Bat"){
         cout << "Bat constructor" << endl;
     }
+    int x;
 };
 
 int main(){
     Bat b;
+    cout << sizeof(Bat) << endl;
+    //因为开辟一个子类的对象，不仅要开辟当前子类的空间，还需要开辟父类的空间；等于子类与父类相加之和；
+    cout << sizeof(Animal) << endl;
     return 0;
 }
