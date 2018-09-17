@@ -28,7 +28,9 @@ class Test{
         A a3;
     public:
     Test():a(1), a1(1), a2(2), a3(3){
+        cout << "Test()" << endl;
        //成员属性声明顺序才是初始化列表的初始化顺序； 
+        //初始化列表先于构造函数的函数体执行；
     }
     void setA(int v){
         int *p = const_cast<int*> (&a);
