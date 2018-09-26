@@ -7,10 +7,23 @@
 
 #include<iostream>
 using namespace std;
+
+void swap(int &a, int &b){
+    int temp = a;
+    a = b;
+    b = temp;
+    return ;
+}
 int main(){
-    int a = 3;
+    int a = 5;
+    int c = 6;
     int &b = a;
     b = 3;
-    cout << a << " " << endl;
+    a = 10;
+    swap(a, c);
+    cout << a << " " << b << endl;
+    cout << a << " "<< c << endl;
     return 0;
 }
+// type a;
+// type &b = a;
