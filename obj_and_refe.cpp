@@ -14,6 +14,16 @@ void swap(int &a, int &b){
     b = temp;
     return ;
 }
+
+int &f(){
+    int a;
+    return a;
+}
+int b;
+int &func(){
+    return b;
+}
+
 int main(){
     int a = 5;
     int c = 6;
