@@ -13,16 +13,28 @@ using std::cin;
 class Father{
     public:
         int value;
+        Father();
 };
 
 class Child : public Father{
     public:
         int value;
+        Child();
 };
+
+Father::Father(){
+    cout << "Father's value : " << &value << endl; 
+}
+
+Child::Child(){
+    cout << "Child's value : " << &value << endl;
+}
 
 int main(){
     Child child;
     child.value = 100;
-    cout << child.value << endl;
+    child.Father::value = 1000;
+    cout << &child.value << endl;
+    cout << &child.Father::value << endl;
     return 0;
 }
