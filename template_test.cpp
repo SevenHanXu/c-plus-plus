@@ -31,7 +31,10 @@ void swap(float &a, float &b){
 	a = b;
 	b = temp;
 }
-
+class Test{
+    public:
+    Test(){}
+};
 template <typename T>
 void mySwap(T &a, T &b){
 	T temp = a;
@@ -54,5 +57,8 @@ int main() {
 	string s2 = "hhh";
 	mySwap(s1, s2);
 	cout << "s1 = " << s1 << " s2 = " << s2 << endl;
+    Test t1;
+    Test t2;
+    mySwap(t1, t2);
 	return 0;
 }
