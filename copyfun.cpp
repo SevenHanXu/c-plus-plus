@@ -15,6 +15,10 @@ public:
 	People(const People &a);
 	~People();
 	void out();
+	People operator = (const People &a){//返回&是为了减少拷贝操作；
+		cout << this << "operator = is called" << endl;
+		return *this;//提领操作，把里面的值拿出来
+	}
 private:
 	string x;
 };
@@ -31,12 +35,16 @@ int main(){
 	People b = func();
 	a.out();
 	b.out();
+	(a = b).out();
+	a.out();
 	return 0;
 }
 
 People::People(string x) : x(x){
 	cout << "constructor by " << this << endl;
 }
+
+
 People::People(const People &a){
 	this->x = a.x + "0";
 	cout << "copy construct called from " <<  &a << " to " << this << endl;
@@ -45,6 +53,10 @@ People::People(const People &a){
 People::~People(){
 	cout << this << " destroy " << endl;
 }
+
+
 void People::out(){
 	cout << this << " name is " << this->x << endl;
 }
+
+
