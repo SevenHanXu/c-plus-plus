@@ -10,7 +10,7 @@ using namespace std;
 
 class People{
 public:
-	People(string name);
+	People(const string name);
 	void say(string word){
 		cout << this->__name << " say : " << word << endl;
 	}
@@ -23,8 +23,9 @@ private:
 
 
 
-People::People(string name){
+People::People(const string name){
 	this->__name = name;
+    cout << "People constructor" << endl;
 }
 
 
