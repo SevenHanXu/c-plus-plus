@@ -25,15 +25,17 @@ struct ARG<T>{
 template <typename T, typename ...ARGS> struct Test;
 template <typename T, typename ...ARGS>
 struct Test<T(ARGS...)>{
-	T operator()(typename ARG<ARGS...>::__type a, typename ARG<ARGS...>::__rest::__last b){
+    typedef typename ARG<ARGS...>::__type U1;
+    typedef typename ARG<ARGS...>::__rest::__last U2;
+	T operator()(U1 a, U2 b){
 		return a + b;
 	}
 };
 
 int main(){
-	Test<double(int, double, char)> t1;
-	Test<double(int, double, char)> t3;//在宏中两个一样的类型被替换了两次，会报错的；
-	Test<int(int, double, char)> t2;
+	Test<double(int, double)> t1;
+	Test<double(int, double)> t3;//在宏中两个一样的类型被替换了两次，会报错的；
+	Test<int(int, double)> t2;
 	cout << t1(2, 3) << endl;
 	return 0;
 }
