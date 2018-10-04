@@ -30,10 +30,14 @@ protected:
 class Cat : protected Animal {
 public:
 	Cat() : Animal("temp_name"){
-		cout << "Cat constructor" << endl;
+		this->tail = 1;
+		cout << "Cat constructor1" << endl;
 	}
 	Cat(string name) : Animal(name){
-		cout << "Cat constructor" << endl;
+		cout << "Cat constructor2" << endl;
+	}
+	void output_tail(){
+		cout << this->tail << endl;
 	}
 	void tell_me_your_name(){
 		cout << "cat name is : " << this->__name << endl;
@@ -45,14 +49,16 @@ private:
 
 class Tail{
 public:
-	Tail(int length) :__length(length){}
+	Tail(int length) :__length(length){
+		cout << "Tail constructor" << endl;
+	}
 private:
 	int __length;
 };
 
 class HasTailCat : public Cat{
 public:
-	HasTailCat(string name) : tail(6){
+	HasTailCat(string name) : tail(6){//没有构造Tail之前是不能用tail的；
 		cout << "HasTailCat constructor" << endl;
 		this->__name = name;
 	}
@@ -63,6 +69,7 @@ private:
 int main(){
 	HasTailCat a("garfiled");
 	a.tell_me_your_name();
+	a.output_tail();
 	return 0;
 }
 //构造函数调用顺序:(1)HasTailCat(2)Cat(3)Animal;
