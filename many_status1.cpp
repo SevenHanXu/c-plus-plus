@@ -11,9 +11,7 @@ using namespace std;
 class Animal{
 public:
 	Animal(const string &name) : __name(name){}
-	virtual void run(){
-		cout << "I don't know how can run" << endl;	
-	};
+	virtual void run() = 0;
 private:
 	string __name;
 };
@@ -30,6 +28,8 @@ public:
 
 int main(){
 	Cat a;
+	Animal m;
+	m.run();
 	Animal &b = a;
 	Animal *c = &a;
 	a.run();
