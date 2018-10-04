@@ -19,12 +19,13 @@ struct ARG{
 template <typename T>
 struct ARG<T>{
 	typedef T __type;
+    typedef T __last;
 };
 
 template <typename T, typename ...ARGS> struct Test;
 template <typename T, typename ...ARGS>
 struct Test<T(ARGS...)>{
-	T operator()(typename ARG<ARGS...>::__type a, typename ARG<ARGS...>::__rest::__type b){
+	T operator()(typename ARG<ARGS...>::__type a, typename ARG<ARGS...>::__rest::__last b){
 		return a + b;
 	}
 };
